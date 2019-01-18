@@ -113,9 +113,9 @@ MadCap|dropDownHotspot
 	cursor: hand;
 	text-decoration: none;
 	color: #45494c;
-	font-size: 20pt;
 	font-weight: bold;
 	border-bottom: none;
+	font-size: 18pt;
 }
 
 MadCap|xref
@@ -579,6 +579,16 @@ MadCap|helpControlList
 th
 {
 	vertical-align: top;
+}
+
+MadCap|dropDownHead
+{
+	
+}
+
+MadCap|popupBody
+{
+	font-family: sans-serif;
 }
 
 @media tablet

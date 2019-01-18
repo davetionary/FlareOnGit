@@ -41,4 +41,12 @@
     Name="code-password"
     Comment=""
     EvaluatedDefinition="A string representing the password used for EAP.">A string representing the password used for EAP.</Variable>
+  <Variable
+    Name="code-strength"
+    Comment=""
+    EvaluatedDefinition="A number representing the strength (1-100)">A number representing the strength (1-100)</Variable>
+  <Variable
+    Name="code-wep"
+    Comment=""
+    EvaluatedDefinition="A boolean indicating if the access point supports WEP encryption">A boolean indicating if the access point supports WEP encryption</Variable>
 </CatapultVariableSet>

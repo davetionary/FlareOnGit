@@ -1,4 +1,4 @@
-﻿function getElementsWithAttribute(attr)
+﻿/*function getElementsWithAttribute(attr)
 {
 	var elementsWithAttribute = [];
 	var elements = document.body.getElementsByTagName('*');
@@ -91,4 +91,37 @@ $(document).ready(function() {
 	getProperties();
 	resetSelector();
 	tocCheck();
-});
+});*/
+
+//New functions to redirect to URL and to get selector state
+
+var pathArray = window.location.pathname.split('/');
+
+$(document).ready(function() {
+		setSelector();
+	});
+
+function setSelector() {
+
+	console.log("0 : " + pathArray[0]);
+	console.log("1 : " + pathArray[1]);
+	console.log("2 : " + pathArray[2]);
+	console.log("9 : " + pathArray[9]);
+}
+
+function setSelector(){	
+
+	$("#version-select option").removeAttr("selected");
+	if (pathArray[9] == null ) {
+		console.log("identified undefined, setting first select to active");
+		$("#version-select option:first").attr("selected", true);
+	}
+	else {
+		console.log("null not identified, trying to set selected option of " + pathArray[9]);
+		$('#version-select option:contains(' + pathArray[9] + ')').attr("selected", true);
+	}
+};
+
+function urlRedirect() {
+	
+}

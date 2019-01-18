@@ -4,9 +4,9 @@
     </head>
     <body>
         <p>Select a software version</p>
-        <select id="version-select" onchange="amendLinks()">
-            <option id="Version2.0.0.0" value="Software Versions.2-0-0-0">2.0.0.0</option>
-            <option id="Version1.0.0.0" value="Software Versions.1-0-0-0">1.0.0.0</option>
+        <select id="version-select" onchange="redirectToVersion()">
+            <option id="Version2.0.0.0" value="Software Versions.2-0-0-0">Version2.0.0.0</option>
+            <option id="Version1.0.0.0" value="Software Versions.1-0-0-0">Version1.0.0.0</option>
         </select>
     </body>
 </html>

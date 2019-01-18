@@ -46,26 +46,26 @@
                 <p>In both cases of TX and RX, the receiver shall determine the message boundary by parsing the completely received data thus far for an unnamed, enclosing JSON object (e.g., delimited by <code>{</code> and <code>}</code>). A timeout of 1 second shall be applied between chunks; if the timeout occurs and a complete JSON object has not been parsed, the receiver shall discard all data and ignore the partial message.</p>
                 <h4>Service Characteristics</h4>
                 <p>UUID: be98076e-8e8d-11e8-9eb6-529269fb1459</p>
-                <table bgcolor="#ffffff" width="75%" border="border-collapse: collapse;">
-                    <tr bgcolor="#cccccc">
-                        <th>
+                <table bgcolor="#ffffff" width="75%" border="border-collapse: collapse;" style="mc-table-style: url('Resources/TableStylesheets/Standard.css');" class="TableStyle-Standard" cellspacing="3">
+                    <tr bgcolor="#cccccc" class="TableStyle-Standard-Body-Body1">
+                        <th class="TableStyle-Standard-BodyE-Column1-Body1">
 Overview
 </th>
-                        <th>
+                        <th class="TableStyle-Standard-BodyE-Column1-Body1">
 Properties
 </th>
-                        <th>
+                        <th class="TableStyle-Standard-BodyE-Column1-Body1">
 Security
 </th>
-                        <th>
+                        <th class="TableStyle-Standard-BodyE-Column1-Body1">
 Descriptors
 </th>
-                        <th>
+                        <th class="TableStyle-Standard-BodyD-Column1-Body1">
 Value Fields
 </th>
                     </tr>
-                    <tr>
-                        <td width="30%">
+                    <tr class="TableStyle-Standard-Body-Body2">
+                        <td width="30%" class="TableStyle-Standard-BodyE-Column1-Body2">
                             <table>
                                 <tr>
                                     <td>
@@ -114,7 +114,7 @@ UUID: be980b1a-8e8d-11e8-9eb6-529269fb1459
                                 </tr>
                             </table>
                         </td>
-                        <td><b><table></table></b>
+                        <td class="TableStyle-Standard-BodyE-Column1-Body2"><b><table></table></b>
                             <table bgcolor="#ffffff" width="100%" border="0">
                                 <tr bgcolor="#cccccc">
                                     <th>
@@ -197,13 +197,13 @@ ExtendedProperties
                                 </tr>
                             </table>
                         </td>
-                        <td>
+                        <td class="TableStyle-Standard-BodyE-Column1-Body2">
 None
 </td>
-                        <td>
+                        <td class="TableStyle-Standard-BodyE-Column1-Body2">
 None
 </td>
-                        <td style="vertical-align:top" width="25%">
+                        <td style="vertical-align:top" width="25%" class="TableStyle-Standard-BodyD-Column1-Body2">
                             <table border="0">
                                 <tr bgcolor="#cccccc">
                                     <th>
@@ -230,8 +230,8 @@ RX data
                             </table>
                         </td>
                     </tr>
-                    <tr>
-                        <td width="30%">
+                    <tr class="TableStyle-Standard-Body-Body1">
+                        <td width="30%" class="TableStyle-Standard-BodyE-Column1-Body1">
                             <table>
                                 <tr>
                                     <td>
@@ -280,7 +280,7 @@ UUID: be980d72-8e8d-11e8-9eb6-529269fb1459
                                 </tr>
                             </table>
                         </td>
-                        <td><b><table></table></b>
+                        <td class="TableStyle-Standard-BodyE-Column1-Body1"><b><table></table></b>
                             <table bgcolor="#ffffff" width="100%" border="0">
                                 <tr bgcolor="#cccccc">
                                     <th>
@@ -363,13 +363,13 @@ ExtendedProperties
                                 </tr>
                             </table>
                         </td>
-                        <td>
+                        <td class="TableStyle-Standard-BodyE-Column1-Body1">
 None
 </td>
-                        <td>
+                        <td class="TableStyle-Standard-BodyE-Column1-Body1">
 None
 </td>
-                        <td style="vertical-align:top" width="25%">
+                        <td style="vertical-align:top" width="25%" class="TableStyle-Standard-BodyD-Column1-Body1">
                             <table border="0">
                                 <tr bgcolor="#cccccc">
                                     <th>
@@ -401,7 +401,7 @@ TX data
         </MadCap:dropDown>
         <MadCap:dropDown>
             <MadCap:dropDownHead>
-                <MadCap:dropDownHotspot>API&#160;Format</MadCap:dropDownHotspot>
+                <MadCap:dropDownHotspot>API Format</MadCap:dropDownHotspot>
             </MadCap:dropDownHead>
             <MadCap:dropDownBody>
                 <p>The API format is a single JSON object, consisting of multiple elements, which can be scalar values or embedded objects. The following details apply to the API JSON object:</p>
@@ -514,10 +514,10 @@ TX data
             <MadCap:dropDownBody>
                 <p><strong><code>version</code></strong> is a <strong>Request</strong> and <strong>Response</strong> message used to negotiate the API version between the provisioning application and the Industrial Gateway. There is no data in either the <strong>Request</strong> or <strong>Response</strong> message; the <code>"version"</code> element of the message contains the version information.</p>
                 <p><strong>Request</strong>:</p>
-                <div class="code"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"version"</code><code>}</code>
+                <div class="code"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "version"</code><code>}</code>
                 </div>
                 <p><strong>Response</strong>:</p>
-                <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"version",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0</code><code>}</code>
+                <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "version",</code><code>   "status" : 0</code><code>}</code>
                 </div>
             </MadCap:dropDownBody>
         </MadCap:dropDown>
@@ -528,10 +528,10 @@ TX data
             <MadCap:dropDownBody>
                 <p><strong><code>getDeviceId</code></strong> is a <strong>Request</strong> and <strong>Response</strong> message used by the provisioning application to obtain the unique identifier of the Industrial Gateway. The <strong>Request</strong> message has no data; the <strong>Response</strong> message has a data element containing a single element, <code>"deviceId"</code>, which is a string identifying the Gateway (typically, the WiFi MAC address).</p>
                 <p><strong>Request</strong>:</p>
-                <div class="code"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getDeviceId"</code><code>}</code>
+                <div class="code"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "getDeviceId"</code><code>}</code>
                 </div>
                 <p><strong>Response</strong>:</p>
-                <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getDeviceId",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0,</code><code>&#160;&#160;&#160;"data"&#160;:</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"deviceId"&#160;:&#160;"c0:ee:40:01:02:03"</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</code><code>}</code>
+                <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "getDeviceId",</code><code>   "status" : 0,</code><code>   "data" :</code><code>       {</code><code>          "deviceId" : "c0:ee:40:01:02:03"</code><code>       }</code><code>}</code>
                 </div>
             </MadCap:dropDownBody>
         </MadCap:dropDown>
@@ -542,16 +542,17 @@ TX data
             <MadCap:dropDownBody>
                 <p><strong>getAccessPoints</strong> is a <strong>Request</strong> and a <strong>Response</strong> message used by the client to obtain the list of available access points. The <strong>Request</strong> message has no data; the <strong>Response</strong> message <code>"data"</code> is an array of available access points. To maintain a responsive user interface, the Industrial Gateway may return multiple intermediate responses with a partial list of access points. Note that the list is not sorted, and an access point may be repeated; the provisioning application should sort and create a unique list of SSIDs when displaying the list.</p>
                 <p><strong>Request</strong>:</p>
-                <div class="code"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getAccessPoints"</code><code>}</code>
+                <div class="code"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "getAccessPoints"</code><code>}</code>
                 </div>
-                <p><strong>Response</strong> (in progress, no results):</p>
-                <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getAccessPoints",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;1</code><code>}</code>
+				<strong>Responses</strong>
+                <p style="font-weight: bold;">(in progress, no results):</p>
+                <div class="output" MadCap:conditions="Software Versions.1-0-0-0"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "getAccessPoints",</code><code>   "status" : 1</code><code>}</code> This is version 1 response</div>
+                <div class="output" MadCap:conditions="Software Versions.2-0-0-0"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "getAccessPoints",</code><code>   "status" : 1</code><code>}</code> This is version 2 response</div>
+                <p style="font-weight: bold;">(in progress, partial results):</p>
+                <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "getAccessPoints",</code><code>   "status" : 1,</code><code>   "data" : [</code><code>           { "<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>" : "AnOpenAP", "<MadCap:popup><MadCap:popupHead>strength</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-strength%]</MadCap:popupBody></MadCap:popup>" : 88, "<MadCap:popup><MadCap:popupHead>wep</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-wep%]</MadCap:popupBody></MadCap:popup>" : false, "<MadCap:popup><MadCap:popupHead>psk</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-psk%]</MadCap:popupBody></MadCap:popup>" : false, "<MadCap:popup><MadCap:popupHead>eap</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-eap%]</MadCap:popupBody></MadCap:popup>" : false},</code><code>           { "<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>" : "NeedPassphrase", "<MadCap:popup><MadCap:popupHead>strength</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-strength%]</MadCap:popupBody></MadCap:popup>" : 76, "<MadCap:popup><MadCap:popupHead>wep</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-wep%]</MadCap:popupBody></MadCap:popup>" : false, "<MadCap:popup><MadCap:popupHead>psk</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-psk%]</MadCap:popupBody></MadCap:popup>" : true, "<MadCap:popup><MadCap:popupHead>eap</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-eap%]</MadCap:popupBody></MadCap:popup>" : false},</code><code>           { "<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>" : "Supports8021X", "<MadCap:popup><MadCap:popupHead>strength</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-strength%]</MadCap:popupBody></MadCap:popup>" : 89, "<MadCap:popup><MadCap:popupHead>wep</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-wep%]</MadCap:popupBody></MadCap:popup>" : false, "<MadCap:popup><MadCap:popupHead>psk</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-psk%]</MadCap:popupBody></MadCap:popup>" : false, "<MadCap:popup><MadCap:popupHead>eap</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-eap%]</MadCap:popupBody></MadCap:popup>" : true}</code><code>       ]</code><code>   }</code><code>}</code>
                 </div>
-                <p><strong>Response</strong> (in progress, partial results):</p>
-                <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getAccessPoints",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"data"&#160;:&#160;[</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{&#160;"ssid"&#160;:&#160;"AnOpenAP",&#160;"strength"&#160;:&#160;88,&#160;"wep"&#160;:&#160;false,&#160;"psk"&#160;:&#160;false,&#160;"eap"&#160;:&#160;false},</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{&#160;"ssid"&#160;:&#160;"NeedPassphrase",&#160;"strength"&#160;:&#160;76,&#160;"wep"&#160;:&#160;false,&#160;"psk"&#160;:&#160;true,&#160;"eap"&#160;:&#160;false},</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{&#160;"ssid"&#160;:&#160;"Supports8021X",&#160;"strength"&#160;:&#160;89,&#160;"wep"&#160;:&#160;false,&#160;"psk"&#160;:&#160;false,&#160;"eap"&#160;:&#160;true}</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;]</code><code>&#160;&#160;&#160;}</code><code>}</code>
-                </div>
-                <p><strong>Response</strong> (final):</p>
-                <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getAccessPoints",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0,</code><code>&#160;&#160;&#160;"data"&#160;:&#160;[</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{&#160;"ssid"&#160;:&#160;"OneLastAP",&#160;"strength"&#160;:&#160;46,&#160;"wep"&#160;:&#160;false,&#160;"psk"&#160;:&#160;true,&#160;"eap"&#160;:&#160;false}</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;]</code><code>&#160;&#160;&#160;}</code><code>}</code>
+                <p style="font-weight: bold;">(final):</p>
+                <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "getAccessPoints",</code><code>   "status" : 0,</code><code>   "data" : [</code><code>           { "<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>" : "OneLastAP", "<MadCap:popup><MadCap:popupHead>strength</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-strength%]</MadCap:popupBody></MadCap:popup>" : 46, "<MadCap:popup><MadCap:popupHead>wep</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-wep%]</MadCap:popupBody></MadCap:popup>" : false, "<MadCap:popup><MadCap:popupHead>psk</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-psk%]</MadCap:popupBody></MadCap:popup>" : true, "<MadCap:popup><MadCap:popupHead>eap</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-eap%]</MadCap:popupBody></MadCap:popup>" : false}</code><code>       ]</code><code>   }</code><code>}</code>
                 </div>
                 <p>The <code>"data"</code> element of the <strong>Response</strong> contains an array of objects containing the following elements:</p>
                 <p>ssid : A string containing the SSID of the access point
@@ -568,19 +569,19 @@ eap : A boolean indicating if the access point supports EAP authentication via 8
             <MadCap:dropDownBody>
                 <p><strong>connectAP</strong> is a <strong>Request</strong> and a <strong>Response</strong> message used by the client to connect to an available access point. The <strong>Request</strong> message contains data that defines which AP to connect to, and optional security data.</p>
                 <p><strong>Request</strong> (open AP):</p>
-                <div class="code"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"ssid"&#160;:&#160;"AnOpenAP"</code><code>&#160;&#160;&#160;}</code><code>}</code>
+                <div class="code"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "connectAP",</code><code>   "data" : {</code><code>       "<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>" : "AnOpenAP"</code><code>   }</code><code>}</code>
                 </div>
                 <p><strong>Request</strong> (Using WEP):</p>
-                <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"ssid"&#160;:&#160;"NeverUseWEP",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"wep-key"&#160;:&#160;"AABBCCDDEEFF01020304050607",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"wep-index"&#160;:&#160;1</code><code>&#160;&#160;&#160;}</code><code>}</code>
+                <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "connectAP",</code><code>   "data" : {</code><code>       "<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>" : "NeverUseWEP",</code><code>       "wep-key" : "AABBCCDDEEFF01020304050607",</code><code>       "wep-index" : 1</code><code>   }</code><code>}</code>
                 </div>
                 <p><strong>Request</strong> (Using pre-shared key encryption):</p>
-                <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"ssid"&#160;:&#160;"NeedPassphrase",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"psk"&#160;:&#160;"my_secret_passphrase"</code><code>&#160;&#160;&#160;}</code><code>}</code>
+                <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "connectAP",</code><code>   "data" : {</code><code>       "<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>" : "NeedPassphrase",</code><code>       "<MadCap:popup><MadCap:popupHead>psk</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-psk%]</MadCap:popupBody></MadCap:popup>" : "my_secret_passphrase"</code><code>   }</code><code>}</code>
                 </div>
                 <p><strong>Request</strong> (Using EAP):</p>
-                <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"ssid"&#160;:&#160;"Supports8021X",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"eap"&#160;:&#160;"eap",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"phase2-auth"&#160;:&#160;"gtc"</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"identity"&#160;:&#160;"username",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"password"&#160;:&#160;"password"</code><code>&#160;&#160;&#160;}</code><code>}</code>
+                <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "connectAP",</code><code>   "data" : {</code><code>       "<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>" : "Supports8021X",</code><code>       "<MadCap:popup><MadCap:popupHead>eap</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-eap%]</MadCap:popupBody></MadCap:popup>" : "<MadCap:popup><MadCap:popupHead>eap</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-eap%]</MadCap:popupBody></MadCap:popup>",</code><code>       "phase2-auth" : "gtc"</code><code>       "identity" : "username",</code><code>       "password" : "password"</code><code>   }</code><code>}</code>
                 </div>
                 <p><strong>Response</strong>:</p>
-                <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0</code><code>}</code>
+                <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "connectAP",</code><code>   "status" : 0</code><code>}</code>
                 </div>
                 <p>The <code>"data"</code> element of the <strong>Request</strong> contains one or more elements describing the connection:</p>
                 <ul>
@@ -602,7 +603,7 @@ eap : A boolean indicating if the access point supports EAP authentication via 8
 </li>
                     <li>password : A string representing the password used for EAP</li>
                 </ul>
-                <p>Note that only one of <code>"wep-key"</code>, <code>"eap"</code>, or <code>"psk"</code> can be specified. <code>"phase2-auth"</code>, <code>"identity"</code>, and <code>"password"</code> can only be used if <code>"eap"</code> is specified.</p>
+                <p>Note that only one of <code>"wep-key"</code>, <code>"<MadCap:popup><MadCap:popupHead>eap</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-eap%]</MadCap:popupBody></MadCap:popup>"</code>, or <code>"<MadCap:popup><MadCap:popupHead>psk</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-psk%]</MadCap:popupBody></MadCap:popup>"</code> can be specified. <code>"phase2-auth"</code>, <code>"identity"</code>, and <code>"password"</code> can only be used if <code>"<MadCap:popup><MadCap:popupHead>eap</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-eap%]</MadCap:popupBody></MadCap:popup>"</code> is specified.</p>
             </MadCap:dropDownBody>
         </MadCap:dropDown>
         <MadCap:dropDown>
@@ -612,13 +613,13 @@ eap : A boolean indicating if the access point supports EAP authentication via 8
             <MadCap:dropDownBody>
                 <p><strong>provisionURL</strong> is a <strong>Request</strong> and a <strong>Response</strong> message used by the client to request provisioning of the device via a URL. The <strong>Request</strong> message contains data describing the provisioning location and authentication. The <strong>Response</strong> message contains data describing the progress of the provisioning.</p>
                 <p><strong>Request</strong>:</p>
-                <div class="code"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"provisionURL",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"url"&#160;:&#160;"http://www.myprovision.net/my_device.json",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"username"&#160;:&#160;"my_user_name",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"password"&#160;:&#160;"my_secret_password"</code><code>&#160;&#160;&#160;}</code><code>}</code>
+                <div class="code"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "provisionURL",</code><code>   "data" : {</code><code>       "url" : "http://www.myprovision.net/my_device.json",</code><code>       "username" : "my_user_name",</code><code>       "password" : "my_secret_password"</code><code>   }</code><code>}</code>
                 </div>
                 <p><strong>Response</strong> (progress):</p>
-                <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"provisionURL",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"operation"&#160;:&#160;"download"</code><code>&#160;&#160;&#160;}</code><code>}</code>
+                <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "provisionURL",</code><code>   "status" : 1,</code><code>   "data" : {</code><code>       "operation" : "download"</code><code>   }</code><code>}</code>
                 </div>
                 <p><strong>Response</strong> (success):</p>
-                <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"provisionURL",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0</code><code>}</code>
+                <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "provisionURL",</code><code>   "status" : 0</code><code>}</code>
                 </div>
                 <p>The <code>"data"</code> element of the <strong>Request</strong> contains the following required elements:</p>
                 <ul>
