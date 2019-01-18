@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultSkin
+  Version="3"
+  SkinType="Component"
+  Comment="HTML5 Toolbar skin"
+  ComponentType="TopicToolbar"
+  EnableResponsiveOutput="True">
+  <Stylesheet>
+    <Styles>
+      <Style
+        Name="Toolbar">
+        <Properties></Properties>
+      </Style>
+      <Style
+        Name="Toolbar Button Separator">
+        <Properties>
+          <Property
+            Name="Color">#808080</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="ToolbarItem">
+        <Classes>
+          <StyleClass
+            Name="PreviousTopic">
+            <Properties>
+              <Property
+                Name="PaddingLeft">20px</Property>
+              <Property
+                Name="PaddingRight">20px</Property>
+              <Property
+                Name="BackgroundGradient">vertical #139CD8 #139CD8</Property>
+              <Property
+                Name="BoxShadowVShadow">0px</Property>
+              <Property
+                Name="BackgroundColor">#ffffff</Property>
+            </Properties>
+          </StyleClass>
+          <StyleClass
+            Name="NextTopic">
+            <Properties>
+              <Property
+                Name="BackgroundColor">#139CD8</Property>
+              <Property
+                Name="BackgroundGradient">vertical #139CD8 #139CD8</Property>
+              <Property
+                Name="BoxShadowVShadow">0px</Property>
+              <Property
+                Name="PaddingLeft">20px</Property>
+              <Property
+                Name="PaddingRight">20px</Property>
+            </Properties>
+          </StyleClass>
+        </Classes>
+      </Style>
+    </Styles>
+  </Stylesheet>
+  <Strings>
+    <Stylesheet
+      lang="en-us">
+      <Stylesheet>
+        <Styles>
+          <Style
+            Name="Toolbar">
+            <Properties></Properties>
+          </Style>
+          <Style
+            Name="Toolbar Button Separator">
+            <Properties>
+              <Property
+                Name="Color">#808080</Property>
+            </Properties>
+          </Style>
+          <Style
+            Name="ToolbarItem">
+            <Classes>
+              <StyleClass
+                Name="PreviousTopic">
+                <Properties>
+                  <Property
+                    Name="PaddingLeft">20px</Property>
+                  <Property
+                    Name="PaddingRight">20px</Property>
+                  <Property
+                    Name="BackgroundGradient">vertical #139CD8 #139CD8</Property>
+                  <Property
+                    Name="BoxShadowVShadow">0px</Property>
+                  <Property
+                    Name="BackgroundColor">#ffffff</Property>
+                </Properties>
+              </StyleClass>
+              <StyleClass
+                Name="NextTopic">
+                <Properties>
+                  <Property
+                    Name="BackgroundColor">#139CD8</Property>
+                  <Property
+                    Name="BackgroundGradient">vertical #139CD8 #139CD8</Property>
+                  <Property
+                    Name="BoxShadowVShadow">0px</Property>
+                  <Property
+                    Name="PaddingLeft">20px</Property>
+                  <Property
+                    Name="PaddingRight">20px</Property>
+                </Properties>
+              </StyleClass>
+            </Classes>
+          </Style>
+        </Styles>
+      </Stylesheet>
+    </Stylesheet>
+  </Strings>
+  <TopicToolbar
+    EnableCustomLayout="false"
+    Buttons="PreviousTopic|CurrentTopicIndex|NextTopic" />
+</CatapultSkin>

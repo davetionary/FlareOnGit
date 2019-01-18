@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>connectAP</h1>
+        <p><strong>connectAP</strong> is a <strong>Request</strong> and a <strong>Response</strong> message used by the client to connect to an available access point. The <strong>Request</strong> message contains data that defines which AP to connect to, and optional security data.</p>
+        <h2>Conditions</h2>
+        <ul>
+            <li>noipv6 : A boolean indicating that IPv6 should be disabled on the connection (optional)
+</li>
+            <li>
+wep-index : A number representing the WEP key index
+</li>
+            <li>psk : A string representing the pre-shared encryption key
+</li>
+            <li>eap : A string representing the EAP type, one of "leap", "peap", "tls", or "ttls"
+</li>
+            <li>phase2-auth : The phase 2 authentication used with EAP, one of "mschapv2" or "gtc"
+</li>
+            <li>identity : A string representing the identity (e.g., user name) for EAP</li>
+            <li>
+password : A string representing the password used for EAP</li>
+        </ul>
+        <h2><strong>Request</strong> (open AP):</h2>
+        <div class="code"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>"&#160;:&#160;"AnOpenAP"</code><code>&#160;&#160;&#160;}</code><code>}</code>
+        </div>
+        <h2><strong>Request</strong> (Using WEP):</h2>
+        <div class="code"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>"&#160;:&#160;"NeverUseWEP",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"<MadCap:popup><MadCap:popupHead>wep-key</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-wep-key%]</MadCap:popupBody></MadCap:popup>"&#160;:&#160;"AABBCCDDEEFF01020304050607",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"<MadCap:popup><MadCap:popupHead>wep-index</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-wep-key-index%]</MadCap:popupBody></MadCap:popup>"&#160;:&#160;1</code><code>&#160;&#160;&#160;}</code><code>}</code>
+        </div>
+        <h2><strong>Request</strong> (Using pre-shared key encryption):</h2>
+        <div class="code"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>"&#160;:&#160;"NeedPassphrase",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"<MadCap:popup><MadCap:popupHead>psk</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-psk%]</MadCap:popupBody></MadCap:popup>"&#160;:&#160;"my_secret_passphrase"</code><code>&#160;&#160;&#160;}</code><code>}</code>
+        </div>
+        <h2><strong>Request</strong> (Using EAP):</h2>
+        <div class="code"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"<MadCap:popup><MadCap:popupHead>ssid</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-SSID%]</MadCap:popupBody></MadCap:popup>"&#160;:&#160;"Supports8021X",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"<MadCap:popup><MadCap:popupHead>eap</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-eap%]</MadCap:popupBody></MadCap:popup>"&#160;:&#160;"eap",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"<MadCap:popup><MadCap:popupHead>phase2-auth</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-phase2-auth%]</MadCap:popupBody></MadCap:popup>"&#160;:&#160;"gtc"</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"<MadCap:popup><MadCap:popupHead>identity</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-identity%]</MadCap:popupBody></MadCap:popup>"&#160;:&#160;"username",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"<MadCap:popup><MadCap:popupHead>password</MadCap:popupHead><MadCap:popupBody>[%=Terminology.code-password%]</MadCap:popupBody></MadCap:popup>"&#160;:&#160;"password"</code><code>&#160;&#160;&#160;}</code><code>}</code>
+        </div>
+        <h2><strong>Response</strong>:</h2>
+        <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0</code><code>}</code>
+        </div>
+        <p>The <code>"data"</code> element of the <strong>Request</strong> contains one or more elements describing the connection:</p>
+        <p class="note">Note that only one of <code>"wep-key"</code>, <code>"eap"</code>, or <code>"psk"</code> can be specified. <code>"phase2-auth"</code>, <code>"identity"</code>, and <code>"password"</code> can only be used if <code>"eap"</code> is specified.</p>
+    </body>
+</html>

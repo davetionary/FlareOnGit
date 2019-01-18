@@ -1,0 +1,818 @@
+/*<meta />*/
+
+body
+{
+	font-family: Arial;
+}
+
+html.home-topic	/*Used on home topic to override padding set in the skin*/
+{
+	
+}
+
+html.home-topic .body-container	/*Overrides padding set in the skin*/
+{
+	padding: 0;
+}
+
+html.home-topic .main-section > .outer-row	/*Overrides padding set in the skin when in tablet/mobile*/
+{
+	max-width: 100%;
+	padding: 0;
+}
+
+h1
+{
+	font-weight: bold;
+	color: #45494c;
+	font-size: 24pt;
+}
+
+h2
+{
+	font-weight: bold;
+	font-size: 18.0pt;
+}
+
+h3
+{
+	font-weight: bold;
+	font-size: 14.0pt;
+}
+
+h4
+{
+	font-weight: bold;
+	font-size: 12.0pt;
+}
+
+h5
+{
+	font-weight: bold;
+	font-size: 10.0pt;
+}
+
+h6
+{
+	font-weight: bold;
+	font-size: 8.0pt;
+}
+
+p
+{
+	font-size: 12.0pt;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	line-height: 20pt;
+	letter-spacing: 0.25;
+}
+
+p.footer
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	line-height: 13pt;
+	color: #fff;
+}
+
+ol,
+ul
+{
+	letter-spacing: .25;
+	line-height: 20pt;
+}
+
+img
+{
+	border: none;
+	max-width: 100%;
+}
+
+a.Popup
+{
+	
+}
+
+MadCap|expandingHead
+{
+	cursor: hand;
+	text-decoration: none;
+	font-weight: bold;
+	font-style: normal;
+	color: #93ad28;
+}
+
+MadCap|expandingBody
+{
+	color: #777777;
+	font-style: italic;
+}
+
+MadCap|dropDownHotspot
+{
+	cursor: hand;
+	text-decoration: none;
+	color: #45494c;
+	font-size: 20pt;
+	font-weight: bold;
+	border-bottom: none;
+}
+
+MadCap|xref
+{
+	font-weight: bold;
+	mc-format: '{para}';
+	text-decoration: underline;
+	color: #139cd8;
+}
+
+div.home-layout
+{
+	padding: 2% 5%;
+}
+
+div.home-section
+{
+	border-bottom: solid 1px #dadada;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0%;
+	padding-bottom: 0%;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #dadada;
+	mc-float: frame-center;
+	clear: both;
+}
+
+MadCap|breadcrumbsProxy
+{
+	border-bottom-width: 0;
+	color: #888888;
+}
+
+a:link
+{
+	color: #139cd8;
+}
+
+a:visited
+{
+	color: #139cd8;
+}
+
+MadCap|dropDownBody
+{
+	padding: 10px 30px 0;
+}
+
+MadCap|dropDown
+{
+	border-bottom: 1px solid #dadada;
+	mc-image-position: left;
+	mc-image-spacing: 10px;
+	mc-open-image: url('../Images/minus.png');
+	mc-closed-image: url('../Images/plus.png');
+	padding: 10px 0;
+}
+
+div.topic-hero
+{
+	background-size: cover;
+	background-attachment: fixed;
+	background-position-x: center;
+	background-repeat: no-repeat;
+	background-position-y: top;
+	background-color: #139cd8;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+div.topic-hero h1
+{
+	color: #fff;
+	font-family: Arial;
+	font-size: 48pt;
+	text-align: center;
+}
+
+div.home-tiles	/*This is a custom responsive layout row style (div class) in your stylesheet. To provide your own description for this style: (1) Open the stylesheet; (2) Find and select the div class with this name; and (3) In the Comment field, replace this text with your own. For more information on adding comments to styles, see the online Help.*/
+{
+	mc-grid-row: true;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.home-tiles::before
+{
+	content: ' ';
+	display: table;
+}
+
+div.home-tiles::after
+{
+	content: ' ';
+	display: table;
+	clear: both;
+}
+
+div.home-tiles > div
+{
+	float: left;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-color: #b9bec1;
+	padding: 2%;
+}
+
+div.home-tiles > div:nth-child(1)
+{
+	width: 48%;
+	margin-left: 0%;
+}
+
+div.home-tiles > div:nth-child(2)
+{
+	width: 48%;
+	margin-left: 4%;
+}
+
+div.home-tiles-layout	/*This is a custom responsive layout row style (div class) in your stylesheet. To provide your own description for this style: (1) Open the stylesheet; (2) Find and select the div class with this name; and (3) In the Comment field, replace this text with your own. For more information on adding comments to styles, see the online Help.*/
+{
+	mc-grid-row: true;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.home-tiles-layout::before
+{
+	content: ' ';
+	display: table;
+}
+
+div.home-tiles-layout::after
+{
+	content: ' ';
+	display: table;
+	clear: both;
+}
+
+div.home-tiles-layout > div
+{
+	float: left;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+div.home-tiles-layout > div:nth-child(1)
+{
+	width: 33.33333%;
+	margin-left: 0%;
+}
+
+div.home-tiles-layout > div:nth-child(2)
+{
+	width: 66.66667%;
+	margin-left: 0%;
+}
+
+div.home-tiles-layout p
+{
+	line-height: 1.2;
+}
+
+div.quick-links	/*This is a custom responsive layout row style (div class) in your stylesheet. To provide your own description for this style: (1) Open the stylesheet; (2) Find and select the div class with this name; and (3) In the Comment field, replace this text with your own. For more information on adding comments to styles, see the online Help.*/
+{
+	mc-grid-row: true;
+	margin-left: auto;
+	margin-right: auto;
+	mc-float: frame-center;
+}
+
+div.quick-links::before
+{
+	content: ' ';
+	display: table;
+}
+
+div.quick-links::after
+{
+	content: ' ';
+	display: table;
+	clear: both;
+}
+
+div.quick-links > div
+{
+	float: left;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+div.quick-links > div:nth-child(1)
+{
+	width: 16.66666%;
+	margin-left: 2%;
+}
+
+div.quick-links > div:nth-child(2)
+{
+	width: 16.66666%;
+	margin-left: 3%;
+}
+
+div.quick-links > div:nth-child(3)
+{
+	width: 16.66666%;
+	margin-left: 3%;
+}
+
+div.quick-links > div:nth-child(4)
+{
+	width: 16.66666%;
+	margin-left: 3%;
+}
+
+div.quick-links > div:nth-child(5)
+{
+	width: 16.66666%;
+	margin-left: 3%;
+}
+
+div.quick-links *	/*Text-align center set to all elements within div.quick-links*/
+{
+	text-align: center;
+}
+
+div.home-footer
+{
+	background-color: #139cd8;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+caption
+{
+	font-weight: bold;
+	font-style: italic;
+}
+
+MadCap|glossaryTerm
+{
+	color: #93ad28;
+}
+
+MadCap|toggler
+{
+	color: #139cd8;
+}
+
+MadCap|popupHead
+{
+	color: #139cd8;
+}
+
+MadCap|helpControlMenuItem.Highlighted
+{
+	background-color: #139cd8;
+}
+
+a
+{
+	color: #f5f5dc;
+}
+
+MadCap|conceptLink
+{
+	color: #139cd8;
+}
+
+MadCap|keywordLink
+{
+	color: #139cd8;
+}
+
+MadCap|relatedTopics
+{
+	color: #139cd8;
+}
+
+MadCap|shortcut
+{
+	color: #139cd8;
+}
+
+MadCap|topicToolbarProxy
+{
+	
+}
+
+MadCap|xref.TOCPageNumber
+{
+	color: #139cd8;
+}
+
+MadCap|xref.RelLinkPageNumber
+{
+	color: #139cd8;
+}
+
+MadCap|xref.ListOfPageNumber
+{
+	color: #139cd8;
+}
+
+MadCap|xref.IndexPageNumber
+{
+	color: #139cd8;
+}
+
+MadCap|xref.ConceptPageNumber
+{
+	color: #139cd8;
+}
+
+MadCap|keywordLinkControlListItemLink:visited
+{
+	color: #139cd8;
+}
+
+MadCap|keywordLinkControlListItemLink:link
+{
+	color: #139cd8;
+}
+
+MadCap|keywordLinkControlListItemLink:hover
+{
+	color: #139cd8;
+}
+
+MadCap|keywordLinkControlListItemLink:focus
+{
+	color: #139cd8;
+}
+
+MadCap|keywordLinkControlListItemLink
+{
+	color: #139cd8;
+}
+
+MadCap|keywordLinkControlListItem
+{
+	color: #139cd8;
+}
+
+MadCap|keywordLinkControlList
+{
+	color: #139cd8;
+}
+
+MadCap|conceptLinkControlListItemLink:visited
+{
+	color: #139cd8;
+}
+
+MadCap|conceptLinkControlListItemLink:link
+{
+	color: #139cd8;
+}
+
+MadCap|conceptLinkControlListItemLink:hover
+{
+	color: #139cd8;
+}
+
+MadCap|conceptLinkControlListItemLink:focus
+{
+	color: #139cd8;
+}
+
+MadCap|conceptLinkControlListItemLink
+{
+	color: #139cd8;
+}
+
+MadCap|conceptLinkControlListItem
+{
+	color: #139cd8;
+}
+
+MadCap|conceptLinkControlList
+{
+	color: #139cd8;
+}
+
+MadCap|relatedTopicsControlListItemLink:visited
+{
+	color: #139cd8;
+}
+
+MadCap|relatedTopicsControlListItemLink:link
+{
+	color: #139cd8;
+}
+
+MadCap|relatedTopicsControlListItemLink:hover
+{
+	color: #139cd8;
+}
+
+MadCap|relatedTopicsControlListItemLink:focus
+{
+	color: #139cd8;
+}
+
+MadCap|relatedTopicsControlListItemLink
+{
+	color: #139cd8;
+}
+
+MadCap|relatedTopicsControlListItem
+{
+	color: #139cd8;
+}
+
+MadCap|relatedTopicsControlList
+{
+	color: #139cd8;
+}
+
+MadCap|helpControlListItemLink:visited
+{
+	color: #139cd8;
+}
+
+MadCap|helpControlListItemLink:link
+{
+	color: #139cd8;
+}
+
+MadCap|helpControlListItemLink:hover
+{
+	color: #139cd8;
+}
+
+MadCap|helpControlListItemLink:focus
+{
+	color: #139cd8;
+}
+
+MadCap|helpControlListItemLink
+{
+	color: #139cd8;
+}
+
+MadCap|helpControlListItem
+{
+	color: #139cd8;
+}
+
+MadCap|helpControlList
+{
+	color: #139cd8;
+}
+
+th
+{
+	vertical-align: top;
+}
+
+@media tablet
+{
+	html.home-topic .body-container
+	{
+		margin-left: 0;
+	}
+
+	div.home-tiles > div:nth-child(1)
+	{
+		width: 49%;
+		margin-left: 0%;
+	}
+
+	div.home-tiles > div:nth-child(2)
+	{
+		width: 49%;
+		margin-left: 2%;
+	}
+
+	div.home-tiles-layout > div:nth-child(1)
+	{
+		width: 40%;
+		margin-left: 30%;
+	}
+
+	div.home-tiles-layout > div:nth-child(2)
+	{
+		width: 90%;
+		margin-left: 5%;
+	}
+
+	div.quick-links > div:nth-child(1)
+	{
+		width: 24%;
+		margin-left: 0%;
+	}
+
+	div.quick-links > div:nth-child(2)
+	{
+		width: 24%;
+		margin-left: 14%;
+	}
+
+	div.quick-links > div:nth-child(3)
+	{
+		width: 24%;
+		margin-left: 14%;
+	}
+
+	div.quick-links > div:nth-child(4)
+	{
+		width: 24%;
+		margin-left: 19%;
+	}
+
+	div.quick-links > div:nth-child(5)
+	{
+		width: 24%;
+		margin-left: 14%;
+	}
+}
+
+@media mobile
+{
+	div.home-tiles > div:nth-child(1)
+	{
+		width: 100%;
+		margin-left: 0%;
+	}
+
+	div.home-tiles > div:nth-child(2)
+	{
+		width: 100%;
+		margin-left: 0%;
+		margin-top: 5%;
+	}
+
+	div.home-tiles-layout p
+	{
+		line-height: 1.2;
+	}
+
+	div.quick-links > div:nth-child(1)
+	{
+		width: 49%;
+		margin-left: 0;
+	}
+
+	div.quick-links > div:nth-child(2)
+	{
+		width: 49%;
+		margin-left: 2%;
+	}
+
+	div.quick-links > div:nth-child(3)
+	{
+		width: 49%;
+		margin-left: 0;
+	}
+
+	div.quick-links > div:nth-child(4)
+	{
+		width: 49%;
+		margin-left: 2%;
+	}
+
+	div.quick-links > div:nth-child(5)
+	{
+		width: 49%;
+		margin-left: 25.5%;
+	}
+}
+
+@media print
+{
+	MadCap|xref
+	{
+		font-weight: normal;
+		mc-format: '{quote}{para}{quote} {pageref}';
+		text-decoration: none;
+	}
+}
+
+img.homeblockicons
+{
+	mc-float: outside-frame-left;
+	height: auto;
+	width: 80px;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom-style: none;
+	max-height: 80px;
+	max-width: auto;
+}
+
+p.action-block
+{
+	font-size: 12.0pt;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	line-height: 20pt;
+	font-weight: bold;
+	font-style: normal;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #df6d27;
+	text-align: center;
+}
+
+p.actionblock a
+{
+	
+}
+
+a.whitelink
+{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+MadCap|xref.whitelink
+{
+	font-weight: bold;
+	mc-format: '{para}';
+	color: #ffffff;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+div.code
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #dcdcdc;
+	font-family: 'Courier New';
+}
+
+div.output
+{
+	background-color: #ffffff;
+	mc-hyphenate: never;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
+p.note
+{
+	font-size: 12.0pt;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	line-height: 20pt;
+	letter-spacing: 0.25;
+}
+
+img.ProductPhoto
+{
+	border: none;
+	max-height: 200px;
+	max-width: auto;
+}
+
+div.third
+{
+	width: 150px;
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+div.videowrap
+{
+	clear: both;
+	width: 100pt;
+	mc-float: center;
+}
+

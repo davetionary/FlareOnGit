@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultVariableSet>
+  <Variable
+    Name="Interactive Function"
+    Comment=""
+    EvaluatedDefinition="This describes an interactive function and what it is. This is useful for documenting general things that would be a bit of a diversion from the main topic.  These are reusable and single-sourced across the entire document.">This describes an interactive function and what it is. This is useful for documenting general things that would be a bit of a diversion from the main topic.  These are reusable and single-sourced across the entire document.</Variable>
+  <Variable
+    Name="code-SSID"
+    Comment=""
+    EvaluatedDefinition="A string containing the SSID of the access point to connect (required).">A string containing the SSID of the access point to connect (required).</Variable>
+  <Variable
+    Name="code-noipv6"
+    Comment=""
+    EvaluatedDefinition="A boolean indicating that IPv6 should be disabled on the connection (optional)&#xD;&#xA;.">A boolean indicating that IPv6 should be disabled on the connection (optional)
+.</Variable>
+  <Variable
+    Name="code-wep-key"
+    Comment=""
+    EvaluatedDefinition="A string containing the WEP key (indicates WEP); can be either 5 or 13 hexadecimal bytes (10 or 26 hex chars), or an ASCII string of 5 or 13 characters.">A string containing the WEP key (indicates WEP); can be either 5 or 13 hexadecimal bytes (10 or 26 hex chars), or an ASCII string of 5 or 13 characters.</Variable>
+  <Variable
+    Name="code-wep-key-index"
+    Comment=""
+    EvaluatedDefinition="A number representing the WEP key.">A number representing the WEP key.</Variable>
+  <Variable
+    Name="code-psk"
+    Comment=""
+    EvaluatedDefinition="A string representing the pre-shared encryption key.">A string representing the pre-shared encryption key.</Variable>
+  <Variable
+    Name="code-eap"
+    Comment=""
+    EvaluatedDefinition="A string representing the EAP type, one of LEAP, PEAP, TLS, or TTLS.">A string representing the EAP type, one of LEAP, PEAP, TLS, or TTLS.</Variable>
+  <Variable
+    Name="code-phase2-auth"
+    Comment=""
+    EvaluatedDefinition="The phase 2 authentication used with EAP, one of MSCHAPv2 or GTC.">The phase 2 authentication used with EAP, one of MSCHAPv2 or GTC.</Variable>
+  <Variable
+    Name="code-identity"
+    Comment=""
+    EvaluatedDefinition="A string representing the identity (e.g. user name) for EAP.">A string representing the identity (e.g. user name) for EAP.</Variable>
+  <Variable
+    Name="code-password"
+    Comment=""
+    EvaluatedDefinition="A string representing the password used for EAP.">A string representing the password used for EAP.</Variable>
+</CatapultVariableSet>

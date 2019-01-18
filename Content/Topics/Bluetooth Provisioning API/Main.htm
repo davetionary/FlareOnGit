@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h2>Introduction</h2>
+        <p>This page describes the Bluetooth Provisioning API used during provisioning of the Industrial Gateway.</p>
+        <h2>Provisioning API Details</h2>
+        <h3>General</h3>
+        <p>The provisioning API is performed over a custom BLE GATT service, after the mobile device has been paired with the Gateway. The service provides bi-directional communication of JSON data between the mobile application (BLE GATT client) and Industrial Gaetway (BLE GATT server).</p>
+        <h3>Bluetooth Advertising</h3>
+        <p>The Laird Industrial Gateway shall implement Bluetooth LE advertising, appearing using "General" discovery LE packets. The IG will only advertise if it is not provisioned.</p>
+        <p>The Laird Industrial Gateway shall advertise the GATT Virtual Serial Port Service as the primary service UUID in the LE advertising data.</p>
+        <h3>Bluetooth Connection</h3>
+        <p>The Laird Industrial Gateway shall support a connection from a central Bluetooth LE device using Secure Simple Pairing / LE Legacy Pairing.</p>
+        <h3>GATT Virtual Serial Port Service</h3>
+        <p>The Laird Industrial Gateway implements a GATT service that emulates a serial port interface. The service provides two GATT characteristics which enable data to be received by the server ("RX") and sent from the server ("TX"). The provisioning application connects to the Laird Industrial Gateway as a GATT client, and sends requests to the server by sending UTF8-encoded JSON chunks via the RX characteristic.</p>
+        <p>The provisioning application (GATT client) shall perform one or more confirmed GATT writes to the RX characteristic to send data to the Laird Industrial Gateway, using the attribute operation Write Request and expecting a Write Response, before sending the next chunk of data.</p>
+        <p>The provisioning application (GATT client) shall subscribe to server-indicated changes on the TX characteristic (via writes to the TX characteristic descriptor).</p>
+        <p>The Laird Industrial Gateway (GATT server) shall perform one or more GATT indications to the TX characteristic to send data to the provisioning application (GATT client), using the attribute operation Handle Value Indication, and expecting a Handle Value Confirmation, before sending the next chunk of data.</p>
+        <p>Both the Laird Industrial Gateway (server) and the provisioning application (client) shall send a maximum of 16 bytes in a chunk.</p>
+        <p>In both cases of TX and RX, the receiver shall determine the message boundary by parsing the completely received data thus far for an unnamed, enclosing JSON object (e.g., delimited by <code>{</code> and <code>}</code>). A timeout of 1 second shall be applied between chunks; if the timeout occurs and a complete JSON object has not been parsed, the receiver shall discard all data and ignore the partial message.</p>
+        <h4>Service Characteristics</h4>
+        <p>UUID: be98076e-8e8d-11e8-9eb6-529269fb1459</p>
+        <table bgcolor="#ffffff" width="75%" border="border-collapse: collapse;">
+            <tr bgcolor="#cccccc">
+                <th>
+Overview
+</th>
+                <th>
+Properties
+</th>
+                <th>
+Security
+</th>
+                <th>
+Descriptors
+</th>
+                <th>
+Value Fields
+</th>
+            </tr>
+            <tr>
+                <td width="30%">
+                    <table>
+                        <tr>
+                            <td>
+                                <B>Name:</B>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+RX
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <B>Description:</B>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+This characteristic is used to send JSON data from the client to the server.
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <B>Type:</B>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+com.lairdtech.igateway.characteristic.rx
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <B>Requirement:</B>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+Optional
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+UUID: be980b1a-8e8d-11e8-9eb6-529269fb1459
+</td>
+                        </tr>
+                    </table>
+                </td>
+                <td><b><table></table></b>
+                    <table bgcolor="#ffffff" width="100%" border="0">
+                        <tr bgcolor="#cccccc">
+                            <th>
+Property
+</th>
+                            <th>
+Requirement
+</th>
+                        </tr>
+                        <tr>
+                            <td>
+Read
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+Write
+</td>
+                            <td>
+Mandatory
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+WriteWithoutResponse
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+SignedWrite
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+Notify
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+Indicate
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+WritableAuxiliaries
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+Broadcast
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+ExtendedProperties
+</td>
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+None
+</td>
+                <td>
+None
+</td>
+                <td style="vertical-align:top" width="25%">
+                    <table border="0">
+                        <tr bgcolor="#cccccc">
+                            <th>
+Name
+</th>
+                            <th>
+Format
+</th>
+                            <th>
+Information
+</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <B>RX data</B>
+                            </td>
+                            <td>
+utf8s
+</td>
+                            <td>
+RX data
+</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%">
+                    <table>
+                        <tr>
+                            <td>
+                                <B>Name:</B>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+TX
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <B>Description:</B>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+This characteristic is used to indicate response data from the server to the client.
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <B>Type:</B>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+com.lairdtech.igateway.characteristic.tx
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <B>Requirement:</B>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+Optional
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+UUID: be980d72-8e8d-11e8-9eb6-529269fb1459
+</td>
+                        </tr>
+                    </table>
+                </td>
+                <td><b><table></table></b>
+                    <table bgcolor="#ffffff" width="100%" border="0">
+                        <tr bgcolor="#cccccc">
+                            <th>
+Property
+</th>
+                            <th>
+Requirement
+</th>
+                        </tr>
+                        <tr>
+                            <td>
+Read
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+Write
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+WriteWithoutResponse
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+SignedWrite
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+Notify
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+Indicate
+</td>
+                            <td>
+Mandatory
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+WritableAuxiliaries
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+Broadcast
+</td>
+                            <td>
+Excluded
+</td>
+                        </tr>
+                        <tr>
+                            <td>
+ExtendedProperties
+</td>
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+None
+</td>
+                <td>
+None
+</td>
+                <td style="vertical-align:top" width="25%">
+                    <table border="0">
+                        <tr bgcolor="#cccccc">
+                            <th>
+Name
+</th>
+                            <th>
+Format
+</th>
+                            <th>
+Information
+</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <B>TX data</B>
+                            </td>
+                            <td>
+utf8s
+</td>
+                            <td>
+TX data
+</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+### API Format
+<p>The API format is a single JSON object, consisting of multiple elements, which can be scalar values or embedded objects. The following details apply to the API JSON object:</p><ul><li>The outer-most pair of braces, <code>{</code><code>}</code>, is used to "frame" the message</li><li>The JSON object can contain multiple elements, including embedded objects</li><li>The order of the elements within the object is not defined, so the object must be parsed in its entirety</li><li>Whitespace (spaces, tabs, newlines, and carriage returns) are ignored, except within string values</li></ul><h3>Message Types</h3><p>There are two types of API messages that are exchanged: <strong>Request</strong> and <strong>Response</strong>. A <strong>Request</strong> is always sent by the client, and a <strong>Response</strong> is always sent by the server. There must be at least one <strong>Response</strong> per <strong>Request</strong>, but there can be more than one (for example, to provide status during a single operation).</p><p>All messages <strong>must</strong> contain a <code>"version"</code> element (in the top-level object), which is a numeric element used to identify the protocol version. The initial protocol version is 1.</p><p>All messages <strong>must</strong> contain an <code>"id"</code> element; the meaning of this element is defined per each message type (below).</p><p>All messages <strong>must</strong> contain a <code>"type"</code> element (in the top-level object), which is a string element used to identify the message type.</p><p>All <strong>Response</strong> messages must contain a "status" element, which is a number indicating the current status of the referenced <strong>Request</strong> (see below).</p><p>Messages can optionally contain a <code>"data"</code> element; if defined, this is an object which contains one or more elements that represent data used in the <strong>Request</strong> or <strong>Response</strong> message.</p><h4>Request</h4><p>A <strong>Request</strong> API message can be initiated by the provisioning application. The <code>"id"</code> element must be a unique integer per the request. There should only be one pending <strong>Request</strong> message in flight (awaiting a final response) at a time.</p><h4>Response</h4><p>A <strong>Response</strong> API message is sent by the Gateway, in response to a <strong>Request</strong> message. The <code>"id"</code> element must match the <code>"id"</code> of the <strong>Request</strong> message.</p><h4>Status Codes</h4><p>All <strong>Response</strong> messages contain a <code>"status"</code> element, which is a number that indicates the status of the corresponding <strong>Request</strong>.</p><p>A single <strong>Request</strong> can generate multiple <strong>Response</strong> messages (for example, during a long-running operation). The <code>"status"</code> code is used to determine if the <strong>Response</strong> is <em>final</em>. Any code less than or equal to 0 (zero) is a <em>final</em> response; otherwise, the <strong>Response</strong> is an intermediate message and the operation related to the <strong>Request</strong> continues.</p><table><tr><th><strong>Value</strong></th><th><strong>Status</strong></th><th><strong>Description</strong></th></tr><tr><td> 1         </td><td> STATUS_INTERMEDIATE  </td><td> Intermediate progress (additional information may be provided in <code>"data"</code>)                         </td></tr><tr><td> 0         </td><td> STATUS_SUCCESS       </td><td> Success - The requested operation has completed successfully                                       </td></tr><tr><td> -1        </td><td> STATUS_ERR_INVALID  </td><td> Invalid - The request format or parameters were invalid                                            </td></tr><tr><td> -2        </td><td> STATUS_ERR_TIMEOUT  </td><td> Timeout - The request failed due to a timeout                                                      </td></tr><tr><td> -3        </td><td> STATUS_ERR_AUTH     </td><td> Authentication failure - The request failed due to failed authentication (e.g., HTTP 403 response) </td></tr><tr><td> -4        </td><td> STATUS_ERR_NOTFOUND </td><td> Not Found - The requested object was not found (e.g., HTTP 404 response)                           </td></tr><tr><td> -5        </td><td> STATUS_ERR_NOCONN   </td><td> No connection - No connection (e.g., internet) is available                                        </td></tr></table><h3>API Versioning</h3><p>The provisioning application and the Industrial Gateway (and future devices) negotiate the API version with the <code>"version"</code> message (see below).</p><p>The provisioning application must send a <code>"version"</code> message as the beginning of the provisioning session, to determine the version supported by the Industrial Gateway. The Industrial Gateway will <em>ignore</em> the <code>"version"</code> element of the <code>"version"</code> message sent by the provisioning application, but it will respond with the highest supported API version that is supported. The provisioning application maintains backwards compatibility by using only the version supported by the Industrial Gateway.</p><h3>Timeouts and Retries</h3><p>The following timeout behavior should be applied to messages between the provisioning client and the Industrial Gateway:</p><ul><li>Both the client and the Industrial Gateway should apply a 1-second timeout to receive the next chunk of a message in-progress. If a remaining chunk is not received within 1 second of the previous chunk, the entire message should be discarded and ignored (as if no message was received).
+<ul><li>If the timeout is a <strong>Request</strong> being received by the Industrial Gateway, it should disregard the partial request</li><li>If the timeout is a <strong>Response</strong> being received by the client, it should disregard the partial request, then apply the retry behavior</li></ul></li></ul><p>The following retry behavior applies to response messages received by the client:</p><ul><li>If the client has sent a request and has not received a complete response within 10 seconds, the client should retry the request</li><li>If the client has not received a complete response within 10 seconds since any previous intermediate response, the client should retry the request</li></ul><p>NOTE: This means that the Industrial Gateway should send intermediate messages approximately every 5 seconds during long-running operations.</p><h2>Provisioning API Message Types</h2><p>The following message types are defined:</p><h3>version</h3><p><strong><code>version</code></strong> is a <strong>Request</strong> and <strong>Response</strong> message used to negotiate the API version between the provisioning application and the Industrial Gateway. There is no data in either the <strong>Request</strong> or <strong>Response</strong> message; the <code>"version"</code> element of the message contains the version information.</p><p><strong>Request</strong>:</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"version"</code><code>}</code></p><p><strong>Response</strong>:</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"version",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0</code><code>}</code></p><h3>getDeviceId</h3><p><strong><code>getDeviceId</code></strong> is a <strong>Request</strong> and <strong>Response</strong> message used by the provisioning application to obtain the unique identifier of the Industrial Gateway. The <strong>Request</strong> message has no data; the <strong>Response</strong> message has a data element containing a single element, <code>"deviceId"</code>, which is a string identifying the Gateway (typically, the WiFi MAC address).</p><p><strong>Request</strong>:</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getDeviceId"</code><code>}</code></p><p><strong>Response</strong>:</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getDeviceId",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0,</code><code>&#160;&#160;&#160;"data"&#160;:</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"deviceId"&#160;:&#160;"c0:ee:40:01:02:03"</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</code><code>}</code></p><h3>getAccessPoints</h3><p><strong>getAccessPoints</strong> is a <strong>Request</strong> and a <strong>Response</strong> message used by the client to obtain the list of available access points. The <strong>Request</strong> message has no data; the <strong>Response</strong> message <code>"data"</code> is an array of available access points. To maintain a responsive user interface, the Industrial Gateway may return multiple intermediate responses with a partial list of access points. Note that the list is not sorted, and an access point may be repeated; the provisioning application should sort and create a unique list of SSIDs when displaying the list.</p><p><strong>Request</strong>:</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getAccessPoints"</code><code>}</code></p><p><strong>Response</strong> (in progress, no results):</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getAccessPoints",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;1</code><code>}</code></p><p><strong>Response</strong> (in progress, partial results):</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getAccessPoints",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"data"&#160;:&#160;[</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{&#160;"ssid"&#160;:&#160;"AnOpenAP",&#160;"strength"&#160;:&#160;88,&#160;"wep"&#160;:&#160;false,&#160;"psk"&#160;:&#160;false,&#160;"eap"&#160;:&#160;false},</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{&#160;"ssid"&#160;:&#160;"NeedPassphrase",&#160;"strength"&#160;:&#160;76,&#160;"wep"&#160;:&#160;false,&#160;"psk"&#160;:&#160;true,&#160;"eap"&#160;:&#160;false},</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{&#160;"ssid"&#160;:&#160;"Supports8021X",&#160;"strength"&#160;:&#160;89,&#160;"wep"&#160;:&#160;false,&#160;"psk"&#160;:&#160;false,&#160;"eap"&#160;:&#160;true}</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;]</code><code>&#160;&#160;&#160;}</code><code>}</code></p><p><strong>Response</strong> (final):</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getAccessPoints",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0,</code><code>&#160;&#160;&#160;"data"&#160;:&#160;[</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{&#160;"ssid"&#160;:&#160;"OneLastAP",&#160;"strength"&#160;:&#160;46,&#160;"wep"&#160;:&#160;false,&#160;"psk"&#160;:&#160;true,&#160;"eap"&#160;:&#160;false}</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;]</code><code>&#160;&#160;&#160;}</code><code>}</code></p><p>The <code>"data"</code> element of the <strong>Response</strong> contains an array of objects containing the following elements:</p><p>ssid : A string containing the SSID of the access point
+strength : A number representing the strength (1-100)
+wep : A boolean indicating if the access point supports WEP encryption
+psk : A boolean indicating if the access point supports using a pre-shared key for encryption
+eap : A boolean indicating if the access point supports EAP authentication via 802.1X</p><h3>connectAP</h3><p><strong>connectAP</strong> is a <strong>Request</strong> and a <strong>Response</strong> message used by the client to connect to an available access point. The <strong>Request</strong> message contains data that defines which AP to connect to, and optional security data.</p><p><strong>Request</strong> (open AP):</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"ssid"&#160;:&#160;"AnOpenAP"</code><code>&#160;&#160;&#160;}</code><code>}</code></p><p><strong>Request</strong> (Using WEP):</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"ssid"&#160;:&#160;"NeverUseWEP",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"wep-key"&#160;:&#160;"AABBCCDDEEFF01020304050607",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"wep-index"&#160;:&#160;1</code><code>&#160;&#160;&#160;}</code><code>}</code></p><p><strong>Request</strong> (Using pre-shared key encryption):</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"ssid"&#160;:&#160;"NeedPassphrase",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"psk"&#160;:&#160;"my_secret_passphrase"</code><code>&#160;&#160;&#160;}</code><code>}</code></p><p><strong>Request</strong> (Using EAP):</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"ssid"&#160;:&#160;"Supports8021X",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"eap"&#160;:&#160;"eap",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"phase2-auth"&#160;:&#160;"gtc"</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"identity"&#160;:&#160;"username",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"password"&#160;:&#160;"password"</code><code>&#160;&#160;&#160;}</code><code>}</code></p><p><strong>Response</strong>:</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"connectAP",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0</code><code>}</code></p><p>The <code>"data"</code> element of the <strong>Request</strong> contains one or more elements describing the connection:</p><p>ssid : A string containing the SSID of the access point to connect (required)
+noipv6 : A boolean indicating that IPv6 should be disabled on the connection (optional)
+wep-key : A string containing the WEP key (indicates WEP); can be either 5 or 13 hexadecimal bytes (10 or 26 hex chars), or an ASCII string of 5 or 13 characters
+wep-key-idex : A number representing the WEP key index
+psk : A string representing the pre-shared encryption key
+eap : A string representing the EAP type, one of "leap", "peap", "tls", or "ttls"
+phase2-auth : The phase 2 authentication used with EAP, one of "mschapv2" or "gtc"
+identity : A string representing the identity (e.g., user name) for EAP
+password : A string representing the password used for EAP</p><p>Note that only one of <code>"wep-key"</code>, <code>"eap"</code>, or <code>"psk"</code> can be specified. <code>"phase2-auth"</code>, <code>"identity"</code>, and <code>"password"</code> can only be used if <code>"eap"</code> is specified.</p><h3>provisionURL</h3><p><strong>provisionURL</strong> is a <strong>Request</strong> and a <strong>Response</strong> message used by the client to request provisioning of the device via a URL. The <strong>Request</strong> message contains data describing the provisioning location and authentication. The <strong>Response</strong> message contains data describing the progress of the provisioning.</p><p><strong>Request</strong>:</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"provisionURL",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"url"&#160;:&#160;"http://www.myprovision.net/my_device.json",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"username"&#160;:&#160;"my_user_name",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"password"&#160;:&#160;"my_secret_password"</code><code>&#160;&#160;&#160;}</code><code>}</code></p><p><strong>Response</strong> (progress):</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"provisionURL",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"operation"&#160;:&#160;"download"</code><code>&#160;&#160;&#160;}</code><code>}</code></p><p><strong>Response</strong> (success):</p><p><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"provisionURL",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0</code><code>}</code></p><p>The <code>"data"</code> element of the <strong>Request</strong> contains the following required elements:</p><p>url : A string containing the URL to be used for provisioning
+username : A string containing the username used for authentication to the server
+password : A string containing the password used for authentication to the server</p><p>The <code>"data"</code> element of the <strong>Response</strong> contains an element <code>"operation"</code> for non-final status response messages; this can be one of <code>"connect"</code>, <code>"download"</code>, or <code>"apply"</code>, to indicate the progress during the provisioning process. Note that not all operations may be indicated, and a final response (success or an error) can occur at any time.</p><p><a href="Category:_Industrial_Gateway" title="wikilink">Category: Industrial_Gateway</a></p></body>
+</html>

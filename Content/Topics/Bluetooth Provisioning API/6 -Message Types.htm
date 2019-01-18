@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+  <head></head>
+  <body>
+    <h1>Message Types</h1>
+    <p>There are two types of API messages that are exchanged: <strong>Request</strong> and <strong>Response</strong>. A <strong>Request</strong> is always sent by the client, and a <strong>Response</strong> is always sent by the server. There must be at least one <strong>Response</strong> per <strong>Request</strong>, but there can be more than one (for example, to provide status during a single operation).</p>
+    <p>All messages <strong>must</strong> contain a <code>"version"</code> element (in the top-level object), which is a numeric element used to identify the protocol version. The initial protocol version is 1.</p>
+    <p>All messages <strong>must</strong> contain an <code>"id"</code> element; the meaning of this element is defined per each message type (below).</p>
+    <p>All messages <strong>must</strong> contain a <code>"type"</code> element (in the top-level object), which is a string element used to identify the message type.</p>
+    <p>All <strong>Response</strong> messages must contain a "status" element, which is a number indicating the current status of the referenced <strong>Request</strong> (see below).</p>
+    <p>Messages can optionally contain a <code>"data"</code> element; if defined, this is an object which contains one or more elements that represent data used in the <strong>Request</strong> or <strong>Response</strong> message.</p>
+    <h2>Request</h2>
+    <p>A <strong>Request</strong> API message can be initiated by the provisioning application. The <code>"id"</code> element must be a unique integer per the request. There should only be one pending <strong>Request</strong> message in flight (awaiting a final response) at a time.</p>
+    <h2>Response</h2>
+    <p>A <strong>Response</strong> API message is sent by the Gateway, in response to a <strong>Request</strong> message. The <code>"id"</code> element must match the <code>"id"</code> of the <strong>Request</strong> message.</p>
+    <h2>Status Codes</h2>
+    <p>All <strong>Response</strong> messages contain a <code>"status"</code> element, which is a number that indicates the status of the corresponding <strong>Request</strong>.</p>
+    <p>A single <strong>Request</strong> can generate multiple <strong>Response</strong> messages (for example, during a long-running operation). The <code>"status"</code> code is used to determine if the <strong>Response</strong> is <em>final</em>. Any code less than or equal to 0 (zero) is a <em>final</em> response; otherwise, the <strong>Response</strong> is an intermediate message and the operation related to the <strong>Request</strong> continues.</p>
+    <table>
+      <tr>
+        <th>
+          <strong>Value</strong>
+        </th>
+        <th>
+          <strong>Status</strong>
+        </th>
+        <th>
+          <strong>Description</strong>
+        </th>
+      </tr>
+      <tr>
+        <td> 1         </td>
+        <td> STATUS_INTERMEDIATE  </td>
+        <td> Intermediate progress (additional information may be provided in <code>"data"</code>)                         </td>
+      </tr>
+      <tr>
+        <td> 0         </td>
+        <td> STATUS_SUCCESS       </td>
+        <td> Success - The requested operation has completed successfully                                       </td>
+      </tr>
+      <tr>
+        <td> -1        </td>
+        <td> STATUS_ERR_INVALID  </td>
+        <td> Invalid - The request format or parameters were invalid                                            </td>
+      </tr>
+      <tr>
+        <td> -2        </td>
+        <td> STATUS_ERR_TIMEOUT  </td>
+        <td> Timeout - The request failed due to a timeout                                                      </td>
+      </tr>
+      <tr>
+        <td> -3        </td>
+        <td> STATUS_ERR_AUTH     </td>
+        <td> Authentication failure - The request failed due to failed authentication (e.g., HTTP 403 response) </td>
+      </tr>
+      <tr>
+        <td> -4        </td>
+        <td> STATUS_ERR_NOTFOUND </td>
+        <td> Not Found - The requested object was not found (e.g., HTTP 404 response)                           </td>
+      </tr>
+      <tr>
+        <td> -5        </td>
+        <td> STATUS_ERR_NOCONN   </td>
+        <td> No connection - No connection (e.g., internet) is available                                        </td>
+      </tr>
+    </table>
+  </body>
+</html>

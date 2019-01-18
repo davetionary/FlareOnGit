@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>getAccessPoints</h1>
+        <p><strong>getAccessPoints</strong> is a <strong>Request</strong> and a <strong>Response</strong> message used by the client to obtain the list of available access points. The <strong>Request</strong> message has no data; the <strong>Response</strong> message <code>"data"</code> is an array of available access points. To maintain a responsive user interface, the Industrial Gateway may return multiple intermediate responses with a partial list of access points. Note that the list is not sorted, and an access point may be repeated; the provisioning application should sort and create a unique list of SSIDs when displaying the list.</p>
+        <h2><strong>Request</strong>:</h2>
+        <div class="code"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "getAccessPoints"</code><code>}</code>
+        </div>
+        <h2><strong>Responses</strong> </h2>
+        <h3>(in progress, no results):</h3>
+        <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "getAccessPoints",</code><code>   "status" : 1</code><code>}</code>
+        </div>
+        <h3>(in progress, partial results):</h3>
+        <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "getAccessPoints",</code><code>   "status" : 1,</code><code>   "data" : [</code><code>           { "ssid" : "AnOpenAP", "strength" : 88, "wep" : false, "psk" : false, "eap" : false},</code><code>           { "ssid" : "NeedPassphrase", "strength" : 76, "wep" : false, "psk" : true, "eap" : false},</code><code>           { "ssid" : "Supports8021X", "strength" : 89, "wep" : false, "psk" : false, "eap" : true}</code><code>       ]</code><code>   }</code><code>}</code>
+        </div>
+        <h3>(final):</h3>
+        <div class="output"><code>{</code><code>   "version" : 1,</code><code>   "id" : 1,</code><code>   "type" : "getAccessPoints",</code><code>   "status" : 0,</code><code>   "data" : [</code><code>           { "ssid" : "OneLastAP", "strength" : 46, "wep" : false, "psk" : true, "eap" : false}</code><code>       ]</code><code>   }</code><code>}</code>
+        </div>
+        <p>The <code>"data"</code> element of the <strong>Response</strong> contains an array of objects containing the following elements:</p>
+        <table style="width: 100%;">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td>ssid </td>
+                    <td>A string containing the SSID of the access point</td>
+                </tr>
+                <tr>
+                    <td>strength </td>
+                    <td>
+                        <li>A number representing the strength (1-100)</li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>wep </td>
+                    <td>
+                        <li>A boolean indicating if the access point supports WEP encryption</li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>psk </td>
+                    <td>
+                        <li> A boolean indicating if the access point supports using a pre-shared key for encryption</li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>eap </td>
+                    <td>A boolean indicating if the access point supports EAP authentication via 802.1X</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+    </body>
+</html>

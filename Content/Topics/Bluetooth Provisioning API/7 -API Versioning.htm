@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+  <head></head>
+  <body>
+    <h1>API Versioning</h1>
+    <p>The provisioning application and the Industrial Gateway (and future devices) negotiate the API version with the <code>"version"</code> message (see below).</p>
+    <p>The provisioning application must send a <code>"version"</code> message as the beginning of the provisioning session, to determine the version supported by the Industrial Gateway. The Industrial Gateway will <em>ignore</em> the <code>"version"</code> element of the <code>"version"</code> message sent by the provisioning application, but it will respond with the highest supported API version that is supported. The provisioning application maintains backwards compatibility by using only the version supported by the Industrial Gateway.</p>
+  </body>
+</html>

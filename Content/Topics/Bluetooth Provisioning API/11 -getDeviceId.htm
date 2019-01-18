@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>getDeviceId</h1>
+        <p><strong><code>getDeviceId</code></strong> is a <strong>Request</strong> and <strong>Response</strong> message used by the provisioning application to obtain the unique identifier of the Industrial Gateway. The <strong>Request</strong> message has no data; the <strong>Response</strong> message has a data element containing a single element, <code>"deviceId"</code>, which is a string identifying the Gateway (typically, the WiFi MAC address).</p>
+        <h2><strong>Request</strong>:</h2>
+        <div class="code"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getDeviceId"</code><code>}</code>
+        </div>
+        <h2><strong>Response</strong>:</h2>
+        <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"getDeviceId",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0,</code><code>&#160;&#160;&#160;"data"&#160;:</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"deviceId"&#160;:&#160;"c0:ee:40:01:02:03"</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</code><code>}</code>
+        </div>
+    </body>
+</html>

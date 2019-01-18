@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="2"
+  Comment="New Target"
+  Type="WebHelp2"
+  Destinations=""
+  GlossaryTermConversion="marked"
+  conditions="Software Versions.2-0-0-0"
+  ConditionTagExpression="include[&quot;Software Versions.2-0-0-0&quot;] exclude[&quot;Software Versions.1-0-0-0&quot;] "
+  DefaultUrl="/Content/Home.htm"
+  MasterToc="/Project/TOCs/TOC-Main.fltoc"
+  MasterPage="/Content/Resources/MasterPages/OtherTopics.flmsp">
+  <PrintedOutput
+    CollapseMargins="true"
+    GenerateTOCProxy="true"
+    GenerateIndexProxy="true"
+    GenerateGlossaryProxy="true" />
+</CatapultTarget>

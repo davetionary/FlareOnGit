@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <p style="text-align: left;">
+            <MadCap:snippetText src="../Javascript/VersionFilter.flsnp" />
+        </p>
+        <MadCap:bodyProxy />
+        <div class="home-footer">
+            <table style="width: 100%;">
+                <col />
+                <col />
+                <tbody>
+                    <tr>
+                        <td>
+                            <p class="footer">cs-support@lairdtech.com</p>
+                            <p class="footer">Laird Connectivity</p>
+                        </td>
+                        <td style="text-align: right;">
+                            <img src="../Images/LairdConnectivityLogo_Stacked_White.png" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    <script type="text/javascript" src="../Javascript/ShowHideVersion2.js">
+    </script>
+</html>

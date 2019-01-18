@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+  <head></head>
+  <body>
+    <h1>Timeouts and Retries</h1>
+    <p>The following timeout behavior should be applied to messages between the provisioning client and the Industrial Gateway:</p>
+    <ul>
+      <li>Both the client and the Industrial Gateway should apply a 1-second timeout to receive the next chunk of a message in-progress. If a remaining chunk is not received within 1 second of the previous chunk, the entire message should be discarded and ignored (as if no message was received).
+<ul><li>If the timeout is a <strong>Request</strong> being received by the Industrial Gateway, it should disregard the partial request</li><li>If the timeout is a <strong>Response</strong> being received by the client, it should disregard the partial request, then apply the retry behavior</li></ul></li>
+    </ul>
+    <p>The following retry behavior applies to response messages received by the client:</p>
+    <ul>
+      <li>If the client has sent a request and has not received a complete response within 10 seconds, the client should retry the request</li>
+      <li>If the client has not received a complete response within 10 seconds since any previous intermediate response, the client should retry the request</li>
+    </ul>
+    <p>NOTE: This means that the Industrial Gateway should send intermediate messages approximately every 5 seconds during long-running operations.</p>
+  </body>
+</html>

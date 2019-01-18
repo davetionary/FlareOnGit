@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStylesheets/Standard.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1>GATT Virtual Serial Port Service</h1>
+        <p>The Laird Industrial Gateway implements a GATT service that emulates a serial port interface. The service provides two GATT characteristics which enable data to be received by the server ("RX") and sent from the server ("TX"). The provisioning application connects to the Laird Industrial Gateway as a GATT client, and sends requests to the server by sending UTF8-encoded JSON chunks via the RX characteristic.</p>
+        <p>The provisioning application (GATT client) shall perform one or more confirmed GATT writes to the RX characteristic to send data to the Laird Industrial Gateway, using the attribute operation Write Request and expecting a Write Response, before sending the next chunk of data.</p>
+        <p>The provisioning application (GATT client) shall subscribe to server-indicated changes on the TX characteristic (via writes to the TX characteristic descriptor).</p>
+        <p>The Laird Industrial Gateway (GATT server) shall perform one or more GATT indications to the TX characteristic to send data to the provisioning application (GATT client), using the attribute operation Handle Value Indication, and expecting a Handle Value Confirmation, before sending the next chunk of data.</p>
+        <p>Both the Laird Industrial Gateway (server) and the provisioning application (client) shall send a maximum of 16 bytes in a chunk.</p>
+        <p>In both cases of TX and RX, the receiver shall determine the message boundary by parsing the completely received data thus far for an unnamed, enclosing JSON object (e.g., delimited by <code>{</code> and <code>}</code>). A timeout of 1 second shall be applied between chunks; if the timeout occurs and a complete JSON object has not been parsed, the receiver shall discard all data and ignore the partial message.</p>
+        <h2>Service Characteristics</h2>
+        <p>UUID: be98076e-8e8d-11e8-9eb6-529269fb1459</p>
+        <table bgcolor="#ffffff" border="border-collapse: collapse;" style="mc-table-style: url('../../Resources/TableStylesheets/Standard.css');margin-left: 0;margin-right: auto;width: 75%;" class="TableStyle-Standard" cellspacing="3">
+            <col class="TableStyle-Standard-Column-Column1" />
+            <col class="TableStyle-Standard-Column-Column1" />
+            <col class="TableStyle-Standard-Column-Column1" />
+            <col class="TableStyle-Standard-Column-Column1" />
+            <col class="TableStyle-Standard-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-Standard-Head-Header1">
+                    <th class="TableStyle-Standard-HeadE-Column1-Header1">
+Overview
+</th>
+                    <th class="TableStyle-Standard-HeadE-Column1-Header1">
+Properties
+</th>
+                    <th class="TableStyle-Standard-HeadE-Column1-Header1">
+Security
+</th>
+                    <th class="TableStyle-Standard-HeadE-Column1-Header1">
+Descriptors
+</th>
+                    <th class="TableStyle-Standard-HeadD-Column1-Header1">
+Value Fields
+</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-Standard-Body-Body1">
+                    <td width="30%" class="TableStyle-Standard-BodyE-Column1-Body1">
+                        <table>
+                            <tr>
+                                <td>
+                                    <B>Name:</B>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+RX
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <B>Description:</B>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+This characteristic is used to send JSON data from the client to the server.
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <B>Type:</B>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+com.lairdtech.igateway.characteristic.rx
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <B>Requirement:</B>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+Optional
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+UUID: be980b1a-8e8d-11e8-9eb6-529269fb1459
+</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="TableStyle-Standard-BodyE-Column1-Body1"><b><table></table></b>
+                        <table bgcolor="#ffffff" width="100%" border="0">
+                            <tr bgcolor="#cccccc">
+                                <th>
+Property
+</th>
+                                <th>
+Requirement
+</th>
+                            </tr>
+                            <tr>
+                                <td>
+Read
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+Write
+</td>
+                                <td>
+Mandatory
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+WriteWithoutResponse
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+SignedWrite
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+Notify
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+Indicate
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+WritableAuxiliaries
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+Broadcast
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+ExtendedProperties
+</td>
+                                <td>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="TableStyle-Standard-BodyE-Column1-Body1">
+None
+</td>
+                    <td class="TableStyle-Standard-BodyE-Column1-Body1">
+None
+</td>
+                    <td style="vertical-align:top" width="25%" class="TableStyle-Standard-BodyD-Column1-Body1">
+                        <table border="0">
+                            <tr bgcolor="#cccccc">
+                                <th>
+Name
+</th>
+                                <th>
+Format
+</th>
+                                <th>
+Information
+</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <B>RX data</B>
+                                </td>
+                                <td>
+utf8s
+</td>
+                                <td>
+RX data
+</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="TableStyle-Standard-Body-Body2">
+                    <td width="30%" class="TableStyle-Standard-BodyB-Column1-Body2">
+                        <table>
+                            <tr>
+                                <td>
+                                    <B>Name:</B>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+TX
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <B>Description:</B>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+This characteristic is used to indicate response data from the server to the client.
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <B>Type:</B>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+com.lairdtech.igateway.characteristic.tx
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <B>Requirement:</B>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+Optional
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+UUID: be980d72-8e8d-11e8-9eb6-529269fb1459
+</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="TableStyle-Standard-BodyB-Column1-Body2"><b><table></table></b>
+                        <table bgcolor="#ffffff" width="100%" border="0">
+                            <tr bgcolor="#cccccc">
+                                <th>
+Property
+</th>
+                                <th>
+Requirement
+</th>
+                            </tr>
+                            <tr>
+                                <td>
+Read
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+Write
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+WriteWithoutResponse
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+SignedWrite
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+Notify
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+Indicate
+</td>
+                                <td>
+Mandatory
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+WritableAuxiliaries
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+Broadcast
+</td>
+                                <td>
+Excluded
+</td>
+                            </tr>
+                            <tr>
+                                <td>
+ExtendedProperties
+</td>
+                                <td>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="TableStyle-Standard-BodyB-Column1-Body2">
+None
+</td>
+                    <td class="TableStyle-Standard-BodyB-Column1-Body2">
+None
+</td>
+                    <td style="vertical-align:top" width="25%" class="TableStyle-Standard-BodyA-Column1-Body2">
+                        <table border="0">
+                            <tr bgcolor="#cccccc">
+                                <th>
+Name
+</th>
+                                <th>
+Format
+</th>
+                                <th>
+Information
+</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <B>TX data</B>
+                                </td>
+                                <td>
+utf8s
+</td>
+                                <td>
+TX data
+</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The API format is a single JSON object, consisting of multiple elements, which can be scalar values or embedded objects. The following details apply to the API JSON object:</p>
+        <ul>
+            <li>The outer-most pair of braces, <code>{</code><code>}</code>, is used to "frame" the message</li>
+            <li>The JSON object can contain multiple elements, including embedded objects</li>
+            <li>The order of the elements within the object is not defined, so the object must be parsed in its entirety</li>
+            <li>Whitespace (spaces, tabs, newlines, and carriage returns) are ignored, except within string values</li>
+        </ul>
+    </body>
+</html>

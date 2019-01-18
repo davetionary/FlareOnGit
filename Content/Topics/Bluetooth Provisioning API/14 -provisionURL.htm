@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>provisionURL</h1>
+        <p><strong>provisionURL</strong> is a <strong>Request</strong> and a <strong>Response</strong> message used by the client to request provisioning of the device via a URL. The <strong>Request</strong> message contains data describing the provisioning location and authentication. The <strong>Response</strong> message contains data describing the progress of the provisioning.</p>
+        <p><strong>Request</strong>:</p>
+        <div class="code"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"provisionURL",</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"url"&#160;:&#160;"http://www.myprovision.net/my_device.json",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"username"&#160;:&#160;"my_user_name",</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"password"&#160;:&#160;"my_secret_password"</code><code>&#160;&#160;&#160;}</code><code>}</code>
+        </div>
+        <p><strong>Response</strong> (progress):</p>
+        <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"provisionURL",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"data"&#160;:&#160;{</code><code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;"operation"&#160;:&#160;"download"</code><code>&#160;&#160;&#160;}</code><code>}</code>
+        </div>
+        <p><strong>Response</strong> (success):</p>
+        <div class="output"><code>{</code><code>&#160;&#160;&#160;"version"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"id"&#160;:&#160;1,</code><code>&#160;&#160;&#160;"type"&#160;:&#160;"provisionURL",</code><code>&#160;&#160;&#160;"status"&#160;:&#160;0</code><code>}</code>
+        </div>
+        <p>The <code>"data"</code> element of the <strong>Request</strong> contains the following required elements:</p>
+        <p>url : A string containing the URL to be used for provisioning
+username : A string containing the username used for authentication to the server
+password : A string containing the password used for authentication to the server</p>
+        <p>The <code>"data"</code> element of the <strong>Response</strong> contains an element <code>"operation"</code> for non-final status response messages; this can be one of <code>"connect"</code>, <code>"download"</code>, or <code>"apply"</code>, to indicate the progress during the provisioning process. Note that not all operations may be indicated, and a final response (success or an error) can occur at any time.</p>
+        <p><a href="Category:_Industrial_Gateway" title="wikilink">Category: Industrial_Gateway</a>
+        </p>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <p style="text-align: left;">
+            <MadCap:snippetText src="../Javascript/VersionFilter.flsnp" />
+        </p>
+        <MadCap:breadcrumbsProxy />
+        <MadCap:bodyProxy />
+        <MadCap:topicToolbarProxy />
+    </body>
+    <script type="text/javascript" src="../Javascript/ShowHideVersion2.js">
+    </script>
+</html>
